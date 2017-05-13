@@ -11,4 +11,41 @@ package br.com.almoxarifado.model;
  */
 public class Material {
     
+    private String tipo;
+    private int id;
+    private int quantidade;
+
+    public Material(String tipo, int id, int quantidade) {
+        this.tipo = tipo;
+        this.id = id;
+        this.quantidade = quantidade;
+        
+        
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+    
+    
 }
