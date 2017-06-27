@@ -13,34 +13,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 /**
  *
  * @author Daniel
  */
 @Entity
-@Table(name="material")
-public class MaterialModel implements Serializable{
-    
+@Table(name = "material")
+public class MaterialModel implements Serializable {
+
     @Id
-    @GeneratedValue()
+    @GeneratedValue
     private Integer codigo;
-    @Column(length = 50)
+    @Column(length=50)
     private String tipo;
-    private int quantidade;
-    @Column(length = 50)
+    @Column(length=50)
     private String descricao;
-    private Calendar dataAqui;
-    @Column(length = 50)
+    @Column(length=50)
     private String estado;
+    private Calendar dataAqui;
 
-    public MaterialModel() {
-    }
-
-    
     /**
      * @return the codigo
      */
+    public MaterialModel() {
+    }
+
     public Integer getCodigo() {
         return codigo;
     }
@@ -67,20 +64,6 @@ public class MaterialModel implements Serializable{
     }
 
     /**
-     * @return the quantidade
-     */
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    /**
-     * @param quantidade the quantidade to set
-     */
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    /**
      * @return the descricao
      */
     public String getDescricao() {
@@ -92,6 +75,20 @@ public class MaterialModel implements Serializable{
      */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    /**
+     * @return the estado
+     */
+    public String getEstado() {
+        return estado;
+    }
+
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     /**
@@ -108,17 +105,4 @@ public class MaterialModel implements Serializable{
         this.dataAqui = dataAqui;
     }
 
-    /**
-     * @return the estado
-     */
-    public String getEstado() {
-        return estado;
-    }
-
-    /**
-     * @param estado the estado to set
-     */
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
 }
