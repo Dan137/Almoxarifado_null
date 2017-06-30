@@ -11,4 +11,6 @@ package br.com.almoxarifado.model;
  */
 public interface DaoGenerico <T> {
     public void inserir (T t);
+    
+    public void atualizar (T t);
 }

@@ -30,13 +30,23 @@ public class MaterialModel implements Serializable {
     private String descricao;
     @Column(length=50)
     private String estado;
-    private Calendar dataAqui;
+//    private Calendar dataAqui;
+    private int quantidade;
 
     /**
      * @return the codigo
      */
     public MaterialModel() {
     }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+    
 
     public Integer getCodigo() {
         return codigo;
@@ -94,15 +104,15 @@ public class MaterialModel implements Serializable {
     /**
      * @return the dataAqui
      */
-    public Calendar getDataAqui() {
-        return dataAqui;
-    }
-
-    /**
-     * @param dataAqui the dataAqui to set
-     */
-    public void setDataAqui(Calendar dataAqui) {
-        this.dataAqui = dataAqui;
-    }
+//    public Calendar getDataAqui() {
+//        return dataAqui;
+//    }
+//
+//    /**
+//     * @param dataAqui the dataAqui to set
+//     */
+//    public void setDataAqui(Calendar dataAqui) {
+//        this.dataAqui = dataAqui;
+//    }
 
 }

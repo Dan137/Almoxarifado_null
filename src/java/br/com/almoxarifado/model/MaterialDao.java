@@ -5,38 +5,32 @@
  */
 package br.com.almoxarifado.model;
 
-
+import br.com.almoxarifado.HibernateUtil.HibernateUtil;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+
+
+
+
+
 
 
 public class MaterialDao implements DaoGenerico <MaterialModel>{
-    private SessionFactory conexao;
+    private Session conexao;
     
-    public MaterialDao() {
-        
-        this.conexao=new Configuration().configure().buildSessionFactory();
-                
-    }
-    
+       
     
     @Override
     public void inserir(MaterialModel mat_mod) {
-        Session session = null;
-        
-        session = conexao.openSession();
-        Transaction tx = session.beginTransaction();
-        session.save(mat_mod);
+        this.conexao= HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = conexao.beginTransaction();
+        conexao.save(mat_mod);
         tx.commit();
         
-        session.close();
+        conexao.close();
         
         
-        
-        
-        
+          
     }
     
     
