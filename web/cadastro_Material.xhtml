@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./index.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid columns="2" cellpadding="5" >
+                        <h:outputLabel value="TIPO: " style="font-weight:bold" />
+                        <h:inputText value="#{material.mat_mod.tipo}"/>
+
+                        <h:outputLabel value="ESTADO: "/>
+                        <h:selectOneMenu value = "#{material.mat_mod.estado}">
+                            <f:selectItem itemValue="Em uso"/>
+                            <f:selectItem itemValue="Emprestado"/>
+                            <f:selectItem itemValue="Em manutencao"/>
+                        </h:selectOneMenu>
+
+                        <h:outputLabel value="QUANTIDADE: "/>
+                        <h:inputText value="#{material.mat_mod.quantidade}"/>
+
+                        <h:outputLabel value="DATA DE AQUISICAO: "/>
+                        <p:inputMask id='dataAqui' mask='99/99/9999' value="#{material.mat_mod.dataAqui}" required="true" requiredMessage="Data de Aquisição: Campo obrigatório">
+                            <f:convertDateTime pattern="dd/MM/yyyy" timeZone="=GMT-3" />
+                        </p:inputMask>
+
+                    </h:panelGrid>
+                  
+                    <p:commandButton value="Cadastrar" actionListener="#{material.crear()}" styleClass="ui-priority-primary" />
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

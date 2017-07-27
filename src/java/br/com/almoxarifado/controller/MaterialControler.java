@@ -5,24 +5,20 @@
  */
 package br.com.almoxarifado.controller;
 
-
-
-
-import br.com.almoxarifado.model.MaterialDao;
+import br.com.almoxarifado.model.Dao.MaterialDao;
 import br.com.almoxarifado.model.MaterialModel;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
-
 import javax.faces.bean.SessionScoped;
-
-
 
 /**
  *
  * @author Daniel
  */
-@ManagedBean
+@ManagedBean(name = "materialBean")
 @SessionScoped
 public class MaterialControler {
+
     private MaterialModel mat_mod = new MaterialModel();
 
     public MaterialControler() {
@@ -35,15 +31,20 @@ public class MaterialControler {
     public void setMat_mod(MaterialModel mat_mod) {
         this.mat_mod = mat_mod;
     }
+
     
-    MaterialDao dao = new MaterialDao();
-    public void crear (){
-       
-          dao.inserir(mat_mod);
-        
-        
-       
-       
-       
+
+    public void crear() {
+
+        MaterialDao.getInstance().inserir(mat_mod);
+
     }
+    public List <MaterialModel> readAll(){
+        List <MaterialModel> listMat= MaterialDao.getInstance().listarTudo();
+        
+        return listMat;
+        
+    }
+
+ 
 }

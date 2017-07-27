@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.almoxarifado.model;
+package br.com.almoxarifado.model.Dao;
+
+import java.util.List;
 
 /**
  *
@@ -12,5 +14,5 @@ package br.com.almoxarifado.model;
 public interface DaoGenerico <T> {
     public void inserir (T t);
     
-    public void atualizar (T t);
+    public List <T> listarTudo ();
 }

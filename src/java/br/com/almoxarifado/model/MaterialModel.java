@@ -6,12 +6,19 @@
 package br.com.almoxarifado.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+
+
 
 /**
  *
@@ -26,11 +33,11 @@ public class MaterialModel implements Serializable {
     private Integer codigo;
     @Column(length=50)
     private String tipo;
-    @Column(length=50)
-    private String descricao;
+    
     @Column(length=50)
     private String estado;
-//    private Calendar dataAqui;
+   
+    private Date dataAqui;
     private int quantidade;
 
     /**
@@ -38,6 +45,25 @@ public class MaterialModel implements Serializable {
      */
     public MaterialModel() {
     }
+    
+    
+    public MaterialModel(Integer codigo, String tipo, String estado, Date dataAqui, int quantidade) {
+        this.codigo=codigo;
+        this.tipo=tipo;
+        this.estado=estado;
+        this.dataAqui=dataAqui;
+        this.quantidade=quantidade;
+        
+    }
+    
+    public Date getDataAqui() {
+        return dataAqui;
+    }
+
+    public void setDataAqui(Date dataAqui) {
+        this.dataAqui = dataAqui;
+    }
+    
 
     public int getQuantidade() {
         return quantidade;
@@ -73,19 +99,7 @@ public class MaterialModel implements Serializable {
         this.tipo = tipo;
     }
 
-    /**
-     * @return the descricao
-     */
-    public String getDescricao() {
-        return descricao;
-    }
-
-    /**
-     * @param descricao the descricao to set
-     */
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+   
 
     /**
      * @return the estado
@@ -100,19 +114,6 @@ public class MaterialModel implements Serializable {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    /**
-     * @return the dataAqui
-     */
-//    public Calendar getDataAqui() {
-//        return dataAqui;
-//    }
-//
-//    /**
-//     * @param dataAqui the dataAqui to set
-//     */
-//    public void setDataAqui(Calendar dataAqui) {
-//        this.dataAqui = dataAqui;
-//    }
+    
 
 }

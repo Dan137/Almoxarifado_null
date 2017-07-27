@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="/index.xhtml">
+
+
+            <ui:define name="content">
+                <form>
+                    <p:dataTable var="material" value="#{materialBean.readAll}" rows="10" rowKey="${material.codigo}" paginator="true">
+                        <p:column headerText="CODIGO">
+                            <h:outputText value="#{material.codigo}"/>
+                        </p:column>
+
+                        <p:column headerText="TIPO">
+                            <h:outputText value="#{material.tipo}"/>
+                        </p:column>
+
+                        <p:column headerText="ESTADO">
+                            <h:outputText value="#{material.estado}"/>
+                        </p:column>
+
+                        <p:column headerText="QUANTIDADE">
+                            <h:outputText value="#{material.quantidade}"/>
+                        </p:column>
+
+                        <p:column headerText="DATA DE AQUISIÇÃO">
+                            <h:outputText value="#{material.dataAqui}">
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </h:outputText>
+                        </p:column>
+                    </p:dataTable>
+                </form>
+            </ui:define>
+
+
+
+        </ui:composition>
+
+    </body>
+</html>
