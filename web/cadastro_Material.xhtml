@@ -11,29 +11,37 @@
         <ui:composition template="./index.xhtml">
 
             <ui:define name="content">
-                <h:form>
+                <h:form id="form1">
                     <h:panelGrid columns="2" cellpadding="5" >
-                        <h:outputLabel value="TIPO: " style="font-weight:bold" />
-                        <h:inputText value="#{material.mat_mod.tipo}"/>
+                        <h:outputLabel value="TIPO: "  />
+                        <h:inputText value="#{materialBean.mat_mod.tipo}" />
 
                         <h:outputLabel value="ESTADO: "/>
-                        <h:selectOneMenu value = "#{material.mat_mod.estado}">
+                        <h:selectOneMenu value = "#{materialBean.mat_mod.estado}">
                             <f:selectItem itemValue="Em uso"/>
                             <f:selectItem itemValue="Emprestado"/>
                             <f:selectItem itemValue="Em manutencao"/>
                         </h:selectOneMenu>
 
-                        <h:outputLabel value="QUANTIDADE: "/>
-                        <h:inputText value="#{material.mat_mod.quantidade}"/>
+                        <h:outputLabel  value="QUANTIDADE: "/>
+                        <h:inputText value="#{materialBean.mat_mod.quantidade}"/>
 
-                        <h:outputLabel value="DATA DE AQUISICAO: "/>
-                        <p:inputMask id='dataAqui' mask='99/99/9999' value="#{material.mat_mod.dataAqui}" required="true" requiredMessage="Data de Aquisição: Campo obrigatório">
-                            <f:convertDateTime pattern="dd/MM/yyyy" timeZone="=GMT-3" />
+                        <h:outputLabel  value="DATA DE AQUISICAO: "/>
+                        <p:inputMask id='dataAqui' mask='99/99/9999' value="#{materialBean.mat_mod.dataAqui}" required="true" requiredMessage="Data de Aquisição: Campo obrigatório">
+                            <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3" />
                         </p:inputMask>
 
                     </h:panelGrid>
-                  
-                    <p:commandButton value="Cadastrar" actionListener="#{material.crear()}" styleClass="ui-priority-primary" />
+                    <p:lightBox iframe="true">
+                        <p:commandButton value="Cadastrar" action="#{materialBean.crear()}" styleClass="ui-priority-primary" title="Mataterial cadastrado com sucesso" process="@all" update="form1"/>
+                           
+                        
+                         
+                        <f:facet name="inline">
+                            <h:message for="Cadastrado"> cadastrado com sucesso</h:message>
+                        </f:facet>
+                    </p:lightBox>
+
                 </h:form>
             </ui:define>
 

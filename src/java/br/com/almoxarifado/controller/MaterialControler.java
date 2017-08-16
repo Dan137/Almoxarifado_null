@@ -43,8 +43,15 @@ public class MaterialControler {
         List <MaterialModel> listMat= MaterialDao.getInstance().listarTudo();
         
         return listMat;
-        
     }
-
- 
+    public MaterialModel readId (Integer id){
+        this.mat_mod = MaterialDao.getInstance().listarId(id);
+        return mat_mod;
+    }
+    public void delete (Integer id){
+        MaterialDao.getInstance().deletar(id);
+     }
+    public void update (MaterialModel mat_mod){
+      MaterialDao.getInstance().atualizarId(mat_mod);
+    }
 }

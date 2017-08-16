@@ -14,5 +14,11 @@ import java.util.List;
 public interface DaoGenerico <T> {
     public void inserir (T t);
     
+    public void deletar (Integer id);
+    
     public List <T> listarTudo ();
+    
+    public T listarId (Integer id);
+    
+    public void atualizarId (T t);
 }

@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @author Daniel
  */
-public class teste {
+public class testeLisTudMateriais {
 
     public static void main(String[] args) {
 

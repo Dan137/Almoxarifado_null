@@ -44,6 +44,41 @@ public class MaterialDao implements DaoGenerico<MaterialModel> {
        conexao.close();
        return mat_mod;
     }
-    
+
+    @Override
+    public MaterialModel listarId(Integer id) {
+        conexao=(Session) HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = conexao.beginTransaction();
+        Query consult = conexao.createQuery("from MaterialModel where codigo="+id);
+        MaterialModel mat_mod = (MaterialModel) consult.list().get(0);
+        tx.commit();
+        conexao.close();
+        
+        return mat_mod;
+    }
+
+    @Override
+    public void deletar(Integer id) {
+        conexao = (Session) HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = conexao.beginTransaction();
+        Query consult = conexao.createQuery("from MaterialModel where codigo="+ id);
+        MaterialModel mat_mod = (MaterialModel) consult.list().get(0);
+        conexao.delete(mat_mod);
+        tx.commit();
+        conexao.close();
+    }
+
+    @Override
+    public void atualizarId(MaterialModel mat_mod) {
+        conexao = (Session) HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = conexao.beginTransaction();
+        Query consult = conexao.createQuery("from  MaterialModel");
+        mat_mod = (MaterialModel) consult.list().get(0);
+        conexao.update(mat_mod);
+        tx.commit();
+        conexao.close();
+        
+    }
+
 
 }

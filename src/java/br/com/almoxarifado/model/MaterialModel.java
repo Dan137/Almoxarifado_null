@@ -6,6 +6,8 @@
 package br.com.almoxarifado.model;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -14,8 +16,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 
 
 
@@ -33,10 +34,8 @@ public class MaterialModel implements Serializable {
     private Integer codigo;
     @Column(length=50)
     private String tipo;
-    
     @Column(length=50)
     private String estado;
-   
     private Date dataAqui;
     private int quantidade;
 
@@ -44,6 +43,18 @@ public class MaterialModel implements Serializable {
      * @return the codigo
      */
     public MaterialModel() {
+    }
+    public MaterialModel(String tipo, String estado, int quantidade){
+        this.tipo=tipo;
+        this.estado=estado;
+        this.quantidade=quantidade;
+    }
+     
+    public MaterialModel(String tipo, String estado, int quantidade, Date dataAqui) {
+        this.tipo=tipo;
+        this.estado=estado;
+        this.quantidade=quantidade;
+        this.dataAqui=dataAqui;
     }
     
     
@@ -79,13 +90,6 @@ public class MaterialModel implements Serializable {
     }
 
     /**
-     * @param codigo the codigo to set
-     */
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
-    }
-
-    /**
      * @return the tipo
      */
     public String getTipo() {
@@ -114,6 +118,18 @@ public class MaterialModel implements Serializable {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
+//    public static MaterialModel convertDataAquisicao(MaterialModel mat_mod){
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//        String date = sdf.format(mat_mod.dataAqui);
+//        Date data;
+//        try {
+//            data = sdf.parse(date);
+//            mat_mod.setDataAqui(data);
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        return mat_mod;
+//    }
+
 
 }
