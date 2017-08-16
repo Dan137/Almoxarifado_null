@@ -34,9 +34,9 @@ public class MaterialModel implements Serializable {
     private Integer codigo;
     @Column(length=50)
     private String tipo;
+    private Date dataAqui;
     @Column(length=50)
     private String estado;
-    private Date dataAqui;
     private int quantidade;
 
     /**
